@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Flexbox by trial</title>
+
+  <style>
+    .container {
+      margin: 0.5em 3em;
+      background-color: #E6E3D4;
+      border: 2px solid #42659A;
+    }
+
+    .container-narrow {
+      width: 150px;
+    }
+
+    .box {
+      border: 2px solid #42659A;
+      padding: 5px;
+      margin: 2px;
+      background: #77A0B8;
+      color: #fff;
+    }
+
+    .flex-container-one {
+      display:-webkit-flex;
+      display: flex;
+
+      webkit-justify-content: center;
+      justify-content: center;
+    }
+
+    .flex-container-two {
+      display:-webkit-flex;
+      display: flex;
+
+      flex-flow: column;
+      webkit-flex-flow: column;
+      height: 500px;
+      width: 200px;
+
+      webkit-justify-content: center;
+      justify-content: center;
+    }
+
+    .flex-container-three {
+      display:-webkit-flex;
+      display: flex;
+
+      flex-flow: row;
+      webkit-flex-flow: row;
+      height: 100px;
+
+      webkit-justify-content: center;
+      justify-content: center;
+
+      webkit-align-items: center;
+      align-items: center;
+    }
+
+    .flex-container-four {
+      display:-webkit-flex;
+      display: flex;
+
+      flex-flow: row;
+      webkit-flex-flow: row;
+      height: 100px;
+
+      webkit-justify-content: flex-end;
+      justify-content: flex-end;
+
+      webkit-align-items: flex-end;
+      align-items: flex-end;
+    }
+
+    .self {
+      align-self: flex-start;
+      -webkit-align-self: flex-start;
+    }
+
+    .flex-container-five {
+      display:-webkit-flex;
+      display: flex;
+
+      flex-flow: row;
+      webkit-flex-flow: row;
+      height: 100px;
+
+      webkit-justify-content: flex-start;
+      justify-content: flex-start;
+
+      webkit-align-items: center;
+      align-items: center;
+    }
+
+    .push-right {
+      margin-left: auto;
+    }
+
+    .flex-container-six {
+      display:-webkit-flex;
+      display: flex;
+
+      width: 200px;
+      height: 600px;
+
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+
+      webkit-justify-content: space-around;
+      justify-content: space-around;
+
+      webkit-align-content: space-around;
+      align-content: space-around;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Flexbox by trial. Part 2.</h1>
+  <p>
+    Flexbox is CSS3 for laying out elements.
+    Check browser <a href="http://caniuse.com/#feat=flexbox">support info (by caniuse.com)</a>
+  </p>
+</header>
+
+<article>
+  <h2>Alignment</h2>
+
+  <p>Alignment is set on the flex container, not content/items in the container. Main axis (row/column) manages which way alignment is applied, eg on row centre will center horizontally, column will centre items vertically</p>
+  <p><a href="http://www.w3.org/TR/css3-flexbox/#valdef-justify-content-space-around">More information on justify-content</a></p>
+  <pre>
+    .class {
+      webkit-justify-content: center;
+    justify-content: center;
+    }
+  </pre>
+
+  <h3>Application of justify centre to row</h3>
+  <section class="container flex-container-one">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+  <h3>Application of justify centre to column</h3>
+  <section class="container flex-container-two">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+<article>
+  <h2>Cross-axis alignment</h2>
+
+  <p>Cross-axis alignment is set to align element in opposite axis (vertically for row/horizontally for column),
+  stretch is default (fills in flex container)</p>
+  <p><a href="http://www.w3.org/TR/css3-flexbox/#valdef-align-items-align-self-stretch">More information on align-items</a></p>
+  <pre>
+    .class {
+      webkit-align-items: center;
+      align-items: centre;
+    }
+  </pre>
+
+  <h3>Cross-axis alignment to centre</h3>
+  <section class="container flex-container-three">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+  <h3>Cross-axis alignment to flex-end</h3>
+  <section class="container flex-container-four">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+  <h3>Cross-axis alignment for a single item</h3>
+  <p>Defines alignment for specific element, should be applied to a specific item.</p>
+  <pre>
+    .self {
+      align-self: flex-start;
+      -webkit-align-self: flex-start;
+    }
+  </pre>
+  <section class="container flex-container-four">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box self">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+</article>
+
+<article>
+  <h2>Flex items and margins</h2>
+
+  <p>Margins don't collapse, margin auto can be used to distribute empty space</p>
+  <pre>
+    .push-right {
+      margin-left: auto;
+    }
+  </pre>
+
+  <h3>Cross-axis alignment to centre</h3>
+  <section class="container flex-container-five">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box push-right">
+      <h3>four</h3>
+    </div>
+  </section>
+
+</article>
+
+<article>
+  <h2>Cross-axis alignment for wrapped item</h2>
+
+  <p>align-content aligns content along cross-axis (justify-content aligns content along main axis), can create evenly spaced items both horizontally and vertically</p>
+  <pre>
+    .class {
+      -webkit-align-content: space-around;
+      align-content: space-around;
+    }
+  </pre>
+
+  <h3>Cross-axis alignment of content</h3>
+  <section class="container flex-container-six">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+    <div class="box">
+      <h3>six</h3>
+    </div>
+    <div class="box">
+      <h3>seven</h3>
+    </div>
+    <div class="box">
+      <h3>eight</h3>
+    </div>
+    <div class="box">
+      <h3>nine</h3>
+    </div>
+  </section>
+
+</article>
+
+
+</body>
+</html>
