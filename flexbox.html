@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Flexbox by trial</title>
+
+  <style>
+    .container {
+      margin: 0.5em 3em;
+      background-color: #E6E3D4;
+      border: 2px solid #42659A;
+    }
+
+    .container-narrow {
+      width: 150px;
+    }
+
+    .box {
+      border: 2px solid #42659A;
+      padding: 5px;
+      margin: 2px;
+      background: #77A0B8;
+      color: #fff;
+    }
+
+    .flex-container-one {
+      display:-webkit-flex;
+      display: flex;
+    }
+
+    .flex-container-two {
+      display:-webkit-flex;
+      display: flex;
+
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .flex-container-three {
+      display:-webkit-flex;
+      display: flex;
+
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+    }
+
+    .flex-container-four {
+      display:-webkit-flex;
+      display: flex;
+
+      -webkit-flex-flow: row-reverse wrap;
+      flex-flow: row-reverse wrap;
+    }
+
+    .flex-container-five {
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    .flex-container-five .flex1, .flex-container-five .flex4 {
+      -webkit-flex: 1;
+      flex: 1;
+    }
+
+    .flex-container-five .flex2
+    {
+      -webkit-flex: 4;
+      flex: 4;
+    }
+
+    .flex-container-five .flex3 {
+      -webkit-flex: 2;
+      flex: 2;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Flexbox by trial </h1>
+  <p>
+    Flexbox is CSS3 for laying out elements.
+    Check browser <a href="http://caniuse.com/#feat=flexbox">support info (by caniuse.com)</a>
+  </p>
+</header>
+
+<article>
+  <h2>Default</h2>
+  <p>No styles attached, default look:</p>
+  <section class="container ">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+<article>
+  <h2>Basics</h2>
+
+  <p>Define an OUTER container as a flex container, requires -webkit for Safari </p>
+  <pre>
+    .class {
+      display:-webkit-flex;
+      display: flex;
+    }
+  </pre>
+
+  <section class="container flex-container-one">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+<article>
+  <h2>Flow</h2>
+
+  <p>Flexbox can be defined as a row or as a column, so items inside the flexbox will be arranged horizontally (row) or vertically (column). Flex-direction row is set by default.</p>
+  <pre>
+    .class {
+      -webkit-flex-direction: [row|column];
+      flex-direction: [row|column];
+    }
+  </pre>
+  <h3>flex-direction: column</h3>
+  <section class="container flex-container-two">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+<article>
+  <h2>Wrap</h2>
+
+  <p>If flexbox container is small and requires items inside to wrap, flex-flow with wrap is required. Flex-flow also defines direction like flex-direction, so flex-direction is not required. </p>
+  <pre>
+    .class {
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+    }
+  </pre>
+  <h3>no wrap</h3>
+  <section class="container container-narrow flex-container-one">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+  <h3>with wrap</h3>
+  <section class="container container-narrow flex-container-three">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+
+</article>
+
+<article>
+    <h2>Direction</h2>
+
+    <p>
+      Flex-direction specifies the direction of the flow, for rows default is left to right, reverse is right to left. Reverse works per line, not per element.
+    </p>
+  <pre>
+    .class {
+      -webkit-flex-flow: row-reverse wrap;
+      flex-flow: row-reverse wrap;
+    }
+  </pre>
+  <section class="container container-narrow flex-container-four">
+    <div class="box">
+      <h3>one</h3>
+    </div>
+    <div class="box">
+      <h3>two</h3>
+    </div>
+    <div class="box">
+      <h3>three</h3>
+    </div>
+    <div class="box">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+<article>
+  <h2>Flex property - flexibility</h2>
+
+  <p>
+    Combines multiple properties and sets behaviour of the box: grow, shrink, basis. Used for layout (like column layout).
+    <ul>
+      <li>grow - ratio of growth relative to other items, default is 1</li>
+      <li>shrink - ratio of shrinking, default is 1 (not sure how it works yet)</li>
+      <li>basis:
+          100px - sets base width of an element <br/>
+          auto - distributes "EMPTY" space with grow/shrink ratio<br/>
+          0 - distributes width of elements with grow/shrink ratio, default
+      </li>
+      <li><a href="http://www.w3.org/TR/css3-flexbox/#flex-grow-factor">more info about flex</a></li>
+    </ul>
+  </p>
+  <pre>
+    .class {
+      -webkit-flex: [grow] [shrink] [basis];
+      flex-flow: [grow] [shrink] [basis];
+    }
+  </pre>
+  <section class="container flex-container-five">
+    <div class="box flex1">
+      <h3>flex: 1</h3>
+    </div>
+    <div class="box flex2">
+      <h3>flex: 4</h3>
+    </div>
+    <div class="box flex3">
+      <h3>flex: 2</h3>
+    </div>
+    <div class="box flex4">
+      <h3>flex: 1</h3>
+    </div>
+  </section>
+</article>
+
+</body>
+</html>

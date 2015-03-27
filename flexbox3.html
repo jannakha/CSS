@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Flexbox by trial</title>
+
+  <style>
+    .container {
+      margin: 0.5em 3em;
+      background-color: #E6E3D4;
+      border: 2px solid #42659A;
+
+      display:-webkit-flex;
+      display: flex;
+
+    }
+
+    .box {
+      border: 2px solid #42659A;
+      padding: 5px;
+      margin: 2px;
+      background: #77A0B8;
+      color: #fff;
+    }
+
+    .flex-container-two {
+      -webkit-flex-flow: row-reverse;
+      flex-flow: row-reverse;
+
+      webkit-justify-content: flex-end;
+      justify-content: flex-end;
+    }
+
+    .flex-container-one .box1{
+      -webkit-order: 2;
+      order: 2;
+    }
+
+    .flex-container-one .box2{
+      -webkit-order: -100;
+      order: -100;
+    }
+
+    .flex-container-one .box3,
+    .flex-container-one .box4{
+      -webkit-order: 3;
+      order: 3;
+    }
+
+    .flex-container-three .box1{
+      -webkit-order: 4;
+      order: 4;
+    }
+
+    .flex-container-three .box2{
+      -webkit-order: 3;
+      order: 3;
+    }
+
+    .flex-container-three .box3 {
+      order: 2;
+    }
+
+    .flex-container-three .box4 {
+      -webkit-order: 1;
+      order: 1;
+    }
+
+    .flex-container-five {
+      display:-webkit-flex;
+      display: flex;
+
+      -webkit-flex-flow: column;
+      flex-flow: column;
+    }
+
+    .flex-container-five .box5-3 {
+      order: -1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Flexbox by trial. Part 3. Order! Order!</h1>
+  <p>
+    Flexbox is CSS3 for laying out elements.
+    Check browser <a href="http://caniuse.com/#feat=flexbox">support info (by caniuse.com)</a>
+  </p>
+</header>
+
+<article>
+  <h2>Order</h2>
+
+  <p>Order is set on an element in the flex container. It can be negative (-500 to make sure it's first element).
+    If order value is the same on all elements, source order takes charge.
+
+  </p>
+  <pre>
+    .class {
+      -webkit-order: 2;
+      order: 2;
+    }
+  </pre>
+
+  <section class="container flex-container-one">
+    <div class="box box1">
+      <h3>one</h3>
+    </div>
+    <div class="box box2">
+      <h3>two</h3>
+    </div>
+    <div class="box box3">
+      <h3>three</h3>
+    </div>
+    <div class="box box4">
+      <h3>four</h3>
+    </div>
+  </section>
+
+</article>
+
+<article>
+  <h2>Order vs flex-flow/justify-content</h2>
+
+  <p>Order is set on an element in the flex container. Flex-flow/justify-content is set on flex container to control layout items inside.
+  </p>
+
+  <h3>Reverse order with flex-flow/justify-content</h3>
+  <section class="container flex-container-two">
+    <div class="box box1">
+      <h3>one</h3>
+    </div>
+    <div class="box box2">
+      <h3>two</h3>
+    </div>
+    <div class="box box3">
+      <h3>three</h3>
+    </div>
+    <div class="box box4">
+      <h3>four</h3>
+    </div>
+  </section>
+
+  <h3>Reverse order with order</h3>
+  <section class="container flex-container-three">
+    <div class="box box1">
+      <h3>one</h3>
+    </div>
+    <div class="box box2">
+      <h3>two</h3>
+    </div>
+    <div class="box box3">
+      <h3>three</h3>
+    </div>
+    <div class="box box4">
+      <h3>four</h3>
+    </div>
+  </section>
+
+</article>
+
+<article>
+  <h2>Nested elements</h2>
+
+  <p>Each flex container has it's own order, doesn't inherit from parent or influenced by child containers.
+  </p>
+
+  <h3>Reverse order with flex-flow/justify-content</h3>
+  <section class="container flex-container-four">
+    <div class="box box1">
+      <h3>one</h3>
+    </div>
+    <div class="box box2">
+      <h3>two</h3>
+    </div>
+    <div class="box box3">
+      <div class="container flex-container-five">
+        <div class="box box5-1">
+          <h3>ONE</h3>
+        </div>
+        <div class="box box5-2">
+          <h3>TWO</h3>
+        </div>
+        <div class="box box5-3">
+          <h3>THREE</h3>
+        </div>
+        <div class="box box5-4">
+          <h3>FOUR</h3>
+        </div>
+      </div>
+    </div>
+    <div class="box box4">
+      <h3>four</h3>
+    </div>
+  </section>
+</article>
+
+</body>
+</html>
